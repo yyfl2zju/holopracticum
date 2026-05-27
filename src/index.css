@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* HoloPracticum SaaS Design System - Light */
+    --background: 220 14% 96%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+
+    /* Platform tokens */
+    --surface-1: 0 0% 100%;
+    --surface-2: 220 14% 96%;
+    --surface-3: 220 13% 91%;
+
+    --status-success: 142 71% 45%;
+    --status-warning: 38 92% 50%;
+    --status-error: 0 84% 60%;
+    --status-info: 221 83% 53%;
+    --status-planning: 262 83% 58%;
+    --status-running: 221 83% 53%;
+    --status-validating: 38 92% 50%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 221 83% 53%;
+    --sidebar-muted: 215 16% 47%;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 213 31% 91%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215 20% 65%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --ring: 217 91% 60%;
+
+    --surface-1: 222 47% 11%;
+    --surface-2: 223 47% 8%;
+    --surface-3: 224 71% 4%;
+
+    --status-success: 142 71% 45%;
+    --status-warning: 38 92% 50%;
+    --status-error: 0 84% 60%;
+    --status-info: 217 91% 60%;
+    --status-planning: 262 83% 58%;
+    --status-running: 217 91% 60%;
+    --status-validating: 38 92% 50%;
+
+    --sidebar-background: 224 71% 4%;
+    --sidebar-foreground: 213 31% 91%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 216 34% 17%;
+    --sidebar-ring: 217 91% 60%;
+    --sidebar-muted: 215 20% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .status-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .platform-card {
+    @apply bg-card border border-border rounded-xl p-5 transition-all duration-200 hover:shadow-md hover:border-primary/20;
+  }
+}

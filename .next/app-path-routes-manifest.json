@@ -1,0 +1,13 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/content/page": "/content",
+  "/contracts/page": "/contracts",
+  "/development/page": "/development",
+  "/favicon.ico/route": "/favicon.ico",
+  "/insights/page": "/insights",
+  "/page": "/",
+  "/runs/demo-task/page": "/runs/demo-task",
+  "/tasks/page": "/tasks",
+  "/workflows/page": "/workflows"
+}

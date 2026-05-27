@@ -1,0 +1,11 @@
+{
+  "name": "holopracticum-local-n8n",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "start": "powershell -ExecutionPolicy Bypass -File .\\start-local.ps1"
+  },
+  "dependencies": {
+    "n8n": "2.8.3"
+  }
+}

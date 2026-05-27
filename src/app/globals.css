@@ -1,0 +1,365 @@
+@import "tailwindcss";
+
+:root,
+html[data-theme="dark"] {
+  --background: #0f1724;
+  --background-muted: #172132;
+  --surface: rgba(15, 23, 36, 0.82);
+  --surface-strong: rgba(19, 30, 45, 0.92);
+  --surface-soft: rgba(255, 255, 255, 0.04);
+  --surface-soft-strong: rgba(255, 255, 255, 0.06);
+  --surface-accent: rgba(20, 184, 166, 0.09);
+  --surface-accent-strong: rgba(20, 184, 166, 0.14);
+  --border: rgba(148, 163, 184, 0.12);
+  --border-strong: rgba(148, 163, 184, 0.2);
+  --foreground: #e7eef8;
+  --foreground-muted: #96a6b8;
+  --foreground-soft: #67778a;
+  --accent: #14b8a6;
+  --accent-strong: #6ee7da;
+  --accent-muted: rgba(110, 231, 218, 0.78);
+  --accent-border: rgba(20, 184, 166, 0.18);
+  --success: #34d399;
+  --warning: #f59e0b;
+  --danger: #fb7185;
+  --info: #60a5fa;
+  --header-bg: rgba(15, 23, 36, 0.74);
+  --shadow-panel: 0 16px 46px rgba(2, 8, 23, 0.18);
+  --shadow-accent: 0 18px 50px rgba(20, 184, 166, 0.08);
+  --backdrop-glow-a: rgba(20, 184, 166, 0.07);
+  --backdrop-glow-b: rgba(56, 189, 248, 0.06);
+  --panel-highlight-start: rgba(17, 28, 40, 0.96);
+  --panel-highlight-end: rgba(21, 34, 49, 0.96);
+}
+
+html[data-theme="light"] {
+  --background: #f4f7fb;
+  --background-muted: #eef3f8;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --surface-soft: rgba(15, 23, 42, 0.055);
+  --surface-soft-strong: rgba(15, 23, 42, 0.1);
+  --surface-accent: rgba(15, 118, 110, 0.1);
+  --surface-accent-strong: rgba(15, 118, 110, 0.16);
+  --border: rgba(15, 23, 42, 0.15);
+  --border-strong: rgba(15, 23, 42, 0.22);
+  --foreground: #132235;
+  --foreground-muted: #3d4e61;
+  --foreground-soft: #546376;
+  --accent: #0f766e;
+  --accent-strong: #0b5d56;
+  --accent-muted: rgba(11, 93, 86, 0.88);
+  --accent-border: rgba(15, 118, 110, 0.24);
+  --success: #059669;
+  --warning: #d97706;
+  --danger: #e11d48;
+  --info: #2563eb;
+  --header-bg: rgba(244, 247, 251, 0.92);
+  --shadow-panel: 0 14px 34px rgba(15, 23, 42, 0.1);
+  --shadow-accent: 0 16px 36px rgba(15, 118, 110, 0.06);
+  --backdrop-glow-a: rgba(15, 118, 110, 0.05);
+  --backdrop-glow-b: rgba(59, 130, 246, 0.04);
+  --panel-highlight-start: rgba(255, 255, 255, 0.96);
+  --panel-highlight-end: rgba(245, 249, 250, 0.96);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-muted: var(--background-muted);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-surface-soft: var(--surface-soft);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-soft: var(--foreground-soft);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-plex-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, var(--backdrop-glow-a), transparent 34%),
+    radial-gradient(circle at top right, var(--backdrop-glow-b), transparent 26%),
+    linear-gradient(180deg, var(--background-muted) 0%, var(--background) 48%, var(--background) 100%);
+  color: var(--foreground);
+  font-family: var(--font-manrope), "PingFang SC", "Microsoft YaHei", sans-serif;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+::selection {
+  background: var(--surface-accent-strong);
+  color: var(--foreground);
+}
+
+.panel {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface-strong) 0%, var(--surface) 100%);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(16px);
+}
+
+.panel-soft {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface-soft) 0%, var(--surface) 100%);
+  backdrop-filter: blur(12px);
+}
+
+.panel-highlight {
+  border: 1px solid var(--accent-border);
+  background: linear-gradient(180deg, var(--panel-highlight-start) 0%, var(--panel-highlight-end) 100%);
+  box-shadow: var(--shadow-accent);
+}
+
+.shell-glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(72px);
+}
+
+.shell-glow-a {
+  background: var(--backdrop-glow-a);
+}
+
+.shell-glow-b {
+  background: var(--backdrop-glow-b);
+}
+
+.text-primary {
+  color: var(--foreground);
+}
+
+.text-secondary {
+  color: var(--foreground-muted);
+}
+
+.text-tertiary {
+  color: var(--foreground-soft);
+}
+
+.eyebrow {
+  color: var(--accent-muted);
+}
+
+.surface-card {
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+}
+
+.surface-card-strong {
+  border: 1px solid var(--border);
+  background: var(--surface-soft-strong);
+}
+
+.surface-accent {
+  border: 1px solid var(--accent-border);
+  background: var(--surface-accent);
+}
+
+.chip {
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+  color: var(--foreground-muted);
+}
+
+.chip-accent {
+  border: 1px solid var(--accent-border);
+  background: var(--surface-accent);
+  color: var(--accent-strong);
+}
+
+.button-primary {
+  border: 1px solid var(--accent-border);
+  background: var(--surface-accent-strong);
+  color: var(--foreground);
+  transition:
+    background-color 0.16s ease,
+    border-color 0.16s ease;
+}
+
+.button-primary:hover {
+  background: color-mix(in srgb, var(--surface-accent-strong) 84%, var(--accent) 16%);
+}
+
+.button-secondary {
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+  color: var(--foreground);
+  transition:
+    background-color 0.16s ease,
+    border-color 0.16s ease;
+}
+
+.button-secondary:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-soft-strong);
+}
+
+.input-shell {
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+  color: var(--foreground);
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--foreground-soft) 68%, transparent) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--foreground-soft) 68%, transparent);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.workflow-grid {
+  background-image:
+    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--border-strong) 64%, transparent) 1.2px, transparent 0),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, transparent) 0%, transparent 100%);
+  background-size: 24px 24px, 100% 100%;
+  background-position: center;
+}
+
+.react-flow__node {
+  background: transparent !important;
+  border: none !important;
+}
+
+.react-flow__handle {
+  opacity: 1 !important;
+}
+
+.react-flow__controls {
+  border-color: var(--border) !important;
+  background: var(--surface-strong) !important;
+  box-shadow: var(--shadow-panel) !important;
+}
+
+.react-flow__controls-button {
+  border-color: var(--border) !important;
+  background: transparent !important;
+  color: var(--foreground) !important;
+}
+
+.react-flow__controls-button:hover {
+  background: var(--surface-soft) !important;
+}
+
+.react-flow__attribution {
+  background: color-mix(in srgb, var(--surface-strong) 92%, transparent) !important;
+  color: var(--foreground-soft) !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--border) !important;
+  padding: 4px 8px !important;
+}
+
+.text-white,
+.text-slate-100,
+.text-slate-200 {
+  color: var(--foreground) !important;
+}
+
+.text-slate-300,
+.text-slate-400 {
+  color: var(--foreground-muted) !important;
+}
+
+.text-cyan-50,
+.text-cyan-100,
+.text-cyan-200 {
+  color: var(--accent-strong) !important;
+}
+
+.text-cyan-300\/75,
+.text-cyan-300\/80,
+.text-cyan-200\/75,
+.text-cyan-200\/80 {
+  color: var(--accent-muted) !important;
+}
+
+.bg-white\/4,
+.bg-white\/5,
+.bg-white\/6,
+.bg-white\/8,
+.bg-black\/10,
+.bg-black\/12,
+.bg-black\/16 {
+  background-color: var(--surface-soft) !important;
+}
+
+.bg-cyan-400\/6,
+.bg-cyan-400\/8,
+.bg-cyan-400\/10,
+.bg-cyan-400\/12,
+.bg-cyan-400\/14,
+.bg-cyan-400\/18,
+.bg-emerald-400\/8,
+.bg-emerald-400\/10,
+.bg-amber-400\/8,
+.bg-amber-400\/10,
+.bg-rose-400\/8,
+.bg-rose-400\/10 {
+  background-color: var(--surface-accent) !important;
+}
+
+.border-white\/6,
+.border-white\/8,
+.border-white\/10 {
+  border-color: var(--border) !important;
+}
+
+.border-cyan-400\/10,
+.border-cyan-400\/12,
+.border-cyan-400\/14,
+.border-cyan-400\/16,
+.border-cyan-400\/18,
+.border-cyan-400\/20 {
+  border-color: var(--accent-border) !important;
+}
+
+.placeholder\:text-slate-500::placeholder {
+  color: var(--foreground-soft) !important;
+}
